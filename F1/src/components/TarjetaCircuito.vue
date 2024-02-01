@@ -1,3 +1,21 @@
-<script></script>
-<template></template>
-<style></style>
+<script setup>
+
+</script>
+<template>
+    <div class="tarjeta">
+        <div class="tarjeta__imagen">
+            <img src="#" alt="mapa circuito">
+        </div>
+        <div class="tarjeta__info">
+            <h2> Nombre del circuito</h2>
+            <p><span>País: </span> España </p>
+            <hr>
+            <p><span>Ciudad: </span> Barcelona </p>
+            <hr>
+            <p><span>Kilómetros: </span> 50 km</p>
+        </div>
+    </div>
+</template>
+<style>
+
+</style>
