@@ -7,6 +7,7 @@ import TarjetaPiloto from './components/TarjetaPiloto.vue';
 import { useRoute } from 'vue-router';
 
 
+
 const router = useRoute();
 const pilotos = ref(null);
 
@@ -30,6 +31,7 @@ const sacarInformacion = async () => {
     console.log(result);
   } catch (error) {
     console.error(error);
+
   }
 }
 
