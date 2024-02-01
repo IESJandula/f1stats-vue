@@ -13,7 +13,7 @@
     <div class="carousel-inner" id="carrusel">
       <div class="carousel-item active">
         <img src="../assets/logo.svg" id="imgPiloto" class="d-block w-100 imgPilotos" alt="">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption d-none d-md-block" >
           <h5 class="letrasIndex">🥇Primer Clasificado</h5>
           <p id="nombrePiloto" class="letrasIndex"></p>
           <p id="puntosPiloto" class="letrasIndex"></p>

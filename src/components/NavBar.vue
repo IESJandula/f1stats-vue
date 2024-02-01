@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Imagen a la izquierda del navbar -->
-            <img class="icono-navbar d-lg-none img-movil" src="../assets/" alt="Fórmula 1">
+            <img class="icono-navbar d-lg-none img-movil" src="../assets/icono-navbar.png" alt="Fórmula 1">
                 <!-- Botón para dispositivos móviles -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
                     </li>
                 </ul>
                 <!-- Imagen a la derecha del navbar -->
-                <img class="icono-navbar icono-navbar-mobile" src="img/icono-navbar.png" alt="Fórmula 1">
+                <img class="icono-navbar icono-navbar-mobile" src="../assets/icono-navbar.png" alt="Fórmula 1">
             </div>
         </div>
     </nav>
