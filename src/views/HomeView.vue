@@ -1,9 +1,12 @@
 <script setup>
-import NavBar from '../components/NavBar.vue';
+import Header from '../components/Header.vue';
+import Carousel from '../components/Carousel.vue';
+import {ref} from 'vue'
 </script>
 
 <template>
-    <header>
-        <NavBar></NavBar>
-    </header>
+    <Header></Header>
+    <main>
+        <Carousel :tipo="piloto"></Carousel>
+    </main>
 </template>
