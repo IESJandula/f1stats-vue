@@ -1,0 +1,26 @@
+/*Nuestra hoja de estilo predefinida*/
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+/*SECCION HEADER////////////////////////////////////////////////////////////////*/
+header{
+    background-color: rgb(47, 47, 190);
+    color: white;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1% 2%;
+}
+
+ul{
+    margin: 0;
+}
+ul li{
+    display: inline-block;
+    margin-right: 4%;
+}
+
