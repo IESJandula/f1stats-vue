@@ -6,47 +6,78 @@ import TarjetaEquipo from './components/TarjetaEquipo.vue';
 import TarjetaPiloto from './components/TarjetaPiloto.vue';
 import { useRoute } from 'vue-router';
 
-
-
 const router = useRoute();
-const pilotos = ref(null);
+const pilotos = ref(localStorage.getItem('todosLosPilotos'));
+const circuitos = ref(localStorage.getItem('todosLosCircuitos'));
+const equipos = ref(localStorage.getItem('todosLosEquipos'));
 
 
+const hacerPeticion = ()=>{
+  if(!localStorage.getItem('todosLosPilotos') && router.path === '/drivers'){
+    sacarInformacion();
+  }else if(!localStorage.getItem('todosLosCircuitos') && router.path === '/circuits'){
+    sacarInformacion();
+  }else if(!localStorage.getItem('todosLosEquipos') && router.path === '/teams'){
+    sacarInformacion();
+  }
 
+}
 /*SACAR LOS CIRCUITOS///////////////////////////////////////////////////////*/
 const sacarInformacion = async () => {
-
-  const url = 'https://api-formula-1.p.rapidapi.com'.router.path;
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '56f9dd9624msh2e1a4a6a24767a5p1d0081jsnfbb7cfd4dcbc',
-      'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
-    }
+  
+    const url = 'https://api-formula-1.p.rapidapi.com'+ router.path;
+    console.log(url);
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '56f9dd9624msh2e1a4a6a24767a5p1d0081jsnfbb7cfd4dcbc',
+        'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com'
+      }
   };
+      try {
+        const response = await fetch(url, options);
+        if(!response.ok){
+          throw new Error("La solicitud no fue exitosa. Código de estado: " + response.status);
+        }
+        const result = await response.json();
+        switch (router.path) {
+          case '/drivers':
+            pilotos.value = result;
+            localStorage.setItem('todosLosPilotos', result);
+            break;
 
-  try {
-    const response = await fetch(url, options);
-    const result = await response.json();
-    console.log(result);
-  } catch (error) {
-    console.error(error);
+          case '/circuits':
+            circuitos.value = result;
+            localStorage.setItem('todosLosCircuitos', result);
+            break;
 
-  }
+          case '/teams':
+            equipos.value = result;
+            localStorage.setItem('todosLosEquipos', result);
+            break;
+
+          default:
+            /* Pendiente de implementar la clase de errores para sacar notificación al usuario en este caso */
+            break;
+          }
+        
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+
+      } 
 }
 
-//const circuitos = 'pendiente de';
-//const equipos = 'pendiente de implementar';
 
 </script>
 
 <template>
   <header>
     <ul>
-      <li @click="sacarInformacion">Index</li>
-      <li @click="sacarInformacion">Pilotos</li>
-      <li @click="sacarInformacion">Circuitos</li>
-      <li @click="sacarInformacion">Equipos</li>
+      <li @click="hacerPeticion"><router-link to="/" class="router-link">Index</router-link></li>
+      <li @click="hacerPeticion"><router-link to="/drivers" class="router-link">Pilotos</router-link></li>
+      <li @click="hacerPeticion"><router-link to="/circuits" class="router-link">Circuitos</router-link></li>
+      <li @click="hacerPeticion"><router-link to="/teams" class="router-link">Equipos</router-link></li>
     </ul>
     <form>
       <input type="text" placeholder="Busca por circuito, equipo o piloto">
@@ -54,14 +85,17 @@ const sacarInformacion = async () => {
   </header>
 
   <div class="index" v-if="router.path === '/drivers'">
+    <p>esto se muestra solo si es pilotos</p>
     <TarjetaPiloto v-for="piloto in pilotos" :key="piloto.id" :pilotoProp="piloto" />
   </div>
 
   <div class="circuitos"  v-if="router.path === '/circuits'">
+    <p>esto se muestra solo si es circuitos</p>
     <TarjetaCircuito v-for="circuito in circuitos" :key="circuito.id" />
   </div>
 
   <div class="equipos"  v-if="router.path === '/teams'">
+    <p>esto se muestra solo si es equipos</p>
     <TarjetaEquipo></TarjetaEquipo>
   </div>
 </template>

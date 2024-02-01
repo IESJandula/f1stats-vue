@@ -23,4 +23,8 @@ ul li{
     display: inline-block;
     margin-right: 4%;
 }
+.router-link{
+    text-decoration: none;
+    color: white;
+}
 
