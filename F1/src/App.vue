@@ -42,18 +42,18 @@ const sacarInformacion = async () => {
         const result = await response.json();
         switch (router.path) {
           case '/drivers':
-            pilotos.value = result;
-            localStorage.setItem('todosLosPilotos', result);
+            pilotos.value = result.response;
+            localStorage.setItem('todosLosPilotos', result.response);
             break;
 
           case '/circuits':
-            circuitos.value = result;
-            localStorage.setItem('todosLosCircuitos', result);
+            circuitos.value = result.response;
+            localStorage.setItem('todosLosCircuitos', result.response);
             break;
 
           case '/teams':
             equipos.value = result;
-            localStorage.setItem('todosLosEquipos', result);
+            localStorage.setItem('todosLosEquipos', result.response);
             break;
 
           default:
@@ -61,7 +61,7 @@ const sacarInformacion = async () => {
             break;
           }
         
-        console.log(result);
+        console.log(result.response);
       } catch (error) {
         console.error(error);
 
