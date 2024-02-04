@@ -1,12 +1,14 @@
 <script setup>
-import Header from '../components/Header.vue';
+import HeaderC from '../components/Header.vue';
 import Carousel from '../components/Carousel.vue';
 </script>
 
 <template>
-    <Header></Header>
+    <header>
+        <HeaderC></HeaderC>
+    </header>
     <main>
-        <Carousel :tipo="piloto"></Carousel>
-        <Carousel :tipo="escuderia"></Carousel>
+        <Carousel></Carousel>
+        <!-- <Carousel :tipo="escuderia"></Carousel> -->
     </main>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
             <!-- Imagen a la izquierda del navbar -->
             <img class="icono-navbar d-lg-none img-movil" src="../assets/icono-navbar.png" alt="Fórmula 1">
