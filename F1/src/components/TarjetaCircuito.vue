@@ -3,10 +3,10 @@
 </script>
 <template>
     <div class="tarjeta">
-        <div class="tarjeta__imagen">
+        <div class="tarjetaImagen">
             <img src="#" alt="mapa circuito">
         </div>
-        <div class="tarjeta__info">
+        <div class="tarjetaInfo">
             <h2> Nombre del circuito</h2>
             <p><span>País: </span> España </p>
             <hr>

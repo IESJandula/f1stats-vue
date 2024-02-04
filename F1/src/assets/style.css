@@ -1,8 +1,14 @@
 /*Nuestra hoja de estilo predefinida*/
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
-body{
-    font-family: 'Roboto', sans-serif;
+@font-face {
+    font-family: 'F1Font'; /* Nombre que usarás para referenciar la fuente */
+    src: url('Formula1-Regular-1.ttf'); /* Ruta real de tu archivo de fuente */
+}
+body{ 
+    font-family: 'F1Font', sans-serif;
+    font-weight: normal;
+    font-style: normal;
     margin: 0;
+    text-align: center;
 }
 
 /*SECCION HEADER////////////////////////////////////////////////////////////////*/
@@ -28,3 +34,23 @@ ul li{
     color: white;
 }
 
+/*TARJETAS/////////////////////////////////////////*/
+.tarjeta{
+    display: inline-block;
+    width: 30%;
+    background-color: red;
+    margin: 1% 1%;
+    border-radius: 15px;
+}
+
+.tarjetaImagen{
+    float: left;
+    width: 20%;
+}
+
+.tarjetaInfo{
+    float: right;
+    width: 50%;
+    padding-right: 6%;
+    text-align: left;
+}
