@@ -11,6 +11,7 @@ main {
     padding-bottom: 80px;
     box-sizing: border-box; /* Esto asegura que el padding no afecte al ancho y alto total */
     min-height: 79vh;
+    width: 100%;
 }
 
 /* CSS HEADER */

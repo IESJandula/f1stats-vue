@@ -4,4 +4,8 @@ import Header from '../components/Header.vue';
 
 <template>
     <Header></Header>
+    <div class="titulos-header custom-margin">
+        <h1>Circuitos</h1>
+        <h4>Season 2023</h4>
+    </div>
 </template>

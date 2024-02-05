@@ -41,14 +41,39 @@
           <h5 class="card-title">{{ nombre }}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{ equipo }}</li>
-          <li class="list-group-item">{{ posicion }}</li>
-          <li class="list-group-item">{{ puntos }}</li>
-          <li class="list-group-item">{{ victorias }}</li>
+          <li class="list-group-item">Equipo: {{ equipo }}</li>
+          <li class="list-group-item">Posición: {{ posicion }}</li>
+          <li class="list-group-item">Puntos: {{ puntos }}</li>
+          <li class="list-group-item">Victorias: {{ victorias }}</li>
         </ul>
     </div>
 </template>
 
 <style scoped>
+.card {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    font-family: 'Formula 1';
+    overflow: hidden;
+    width: 22rem;
+}
 
+.card:hover {
+    border-color: red;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 0 rgba(255, 0, 0, 0.5);
+}
+
+.card-body {
+    text-align: center;
+    border-bottom: none;
+}
+
+.list-group-item {
+    border-bottom: none;
+    font-family: 'Formula 1';
+}
 </style>

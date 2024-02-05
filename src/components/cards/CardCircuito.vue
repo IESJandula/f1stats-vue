@@ -31,8 +31,8 @@
           <h5 class="card-title">{{ nombre }}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{ localizacion }}</li>
-          <li class="list-group-item">{{ distancia }}</li>
+          <li class="list-group-item">Localizacion: {{ localizacion }}</li>
+          <li class="list-group-item">Distancia: {{ distancia }}</li>
         </ul>
       </div>
 </template>

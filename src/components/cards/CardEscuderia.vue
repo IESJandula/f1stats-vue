@@ -7,8 +7,8 @@
             required: true
         },
 
-        puntos: {
-            type: Number,
+        presidente: {
+            type: String,
             required: true
         },
 
@@ -23,10 +23,10 @@
     <div class="card" style="width: 18rem;">
         <img :src="imagen" class="card-img-top" alt="equipo">
         <div class="card-body">
-          <h5 class="card-title">{{ nombre }}</h5>
+          <h5 class="card-title">Nombre: {{ nombre }}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{ puntos }}</li>
+          <li class="list-group-item">Presidente: {{ presidente }}</li>
         </ul>
       </div>
 </template>
