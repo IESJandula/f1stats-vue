@@ -35,22 +35,35 @@ ul li{
 }
 
 /*TARJETAS/////////////////////////////////////////*/
-.tarjeta{
-    display: inline-block;
-    width: 30%;
-    background-color: red;
-    margin: 1% 1%;
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(33.33% - 20px), 1fr)); /* Ajusta el tamaño de las columnas para tener tres tarjetas por fila */
+    gap: 20px;
+    justify-items: stretch;
+  }
+  
+  .tarjeta {
+    display: grid;
+    grid-template-columns: auto 1fr; /* La primera columna se ajustará al contenido de la imagen */
+    background-color: rgb(3, 3, 124);
+    color: white;
     border-radius: 15px;
-}
-
-.tarjetaImagen{
-    float: left;
-    width: 20%;
-}
-
-.tarjetaInfo{
-    float: right;
-    width: 50%;
-    padding-right: 6%;
+  }
+  
+  .tarjetaImagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  
+  .tarjetaImagen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  .tarjetaInfo {
+    padding: 20px;
     text-align: left;
-}
+  }

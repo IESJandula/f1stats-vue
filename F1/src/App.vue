@@ -30,7 +30,7 @@
 
   <div class="circuitos">
     <p>esto se muestra solo si es circuitos</p>
-    <TarjetaCircuito :race="racesData"/>
+    <TarjetaCircuito :races="racesData"/>
   </div>
 
   <div class="equipos">
