@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!--<div>
     <h1>Listado de Circuitos:</h1>
     <ul>
       <li v-for="race in racesData" :key="race.id">
@@ -10,11 +10,39 @@
         <img :src="race.circuit.image" alt="Imagen del Circuito">
       </li>
     </ul>
+  </div>-->
+  <header>
+    <ul>
+      <li @click="hacerPeticion"><router-link to="/" class="router-link">Index</router-link></li>
+      <li @click="hacerPeticion"><router-link to="/drivers" class="router-link">Pilotos</router-link></li>
+      <li @click="hacerPeticion"><router-link to="/circuits" class="router-link">Circuitos</router-link></li>
+      <li @click="hacerPeticion"><router-link to="/teams" class="router-link">Equipos</router-link></li>
+    </ul>
+    <form>
+      <input type="text" placeholder="Busca por circuito, equipo o piloto">
+    </form>
+  </header>
+
+  <div class="index">
+    <p>esto se muestra solo si es pilotos</p>
+    <TarjetaPiloto/>
+  </div>
+
+  <div class="circuitos">
+    <p>esto se muestra solo si es circuitos</p>
+    <TarjetaCircuito :race="racesData"/>
+  </div>
+
+  <div class="equipos">
+    <p>esto se muestra solo si es equipos</p>
+    <TarjetaEquipo/>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import TarjetaCircuito from './components/TarjetaCircuito.vue';
+
 
 const racesData = ref([]);
 
