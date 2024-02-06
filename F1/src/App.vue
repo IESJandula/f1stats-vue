@@ -1,16 +1,4 @@
 <template>
-  <!--<div>
-    <h1>Listado de Circuitos:</h1>
-    <ul>
-      <li v-for="race in racesData" :key="race.id">
-        <h2>{{ race.competition.name }}</h2>
-        <p>País: {{ race.competition.location.country }}</p>
-        <p>Ciudad: {{ race.competition.location.city }}</p>
-        <p>Nombre del Circuito: {{ race.circuit.name }}</p>
-        <img :src="race.circuit.image" alt="Imagen del Circuito">
-      </li>
-    </ul>
-  </div>-->
   <header>
     <ul>
       <li @click="hacerPeticion"><router-link to="/" class="router-link">Index</router-link></li>
@@ -24,28 +12,33 @@
   </header>
 
   <div class="index">
-    <p>esto se muestra solo si es pilotos</p>
-    <TarjetaPiloto/>
+    <h2 class="titulos">Pilotos</h2>
+    <TarjetaPiloto :drivers="driversData"/>
   </div>
 
   <div class="circuitos">
-    <p>esto se muestra solo si es circuitos</p>
+    <h2 class="titulos">Circuitos</h2>
     <TarjetaCircuito :races="racesData"/>
   </div>
 
   <div class="equipos">
-    <p>esto se muestra solo si es equipos</p>
-    <TarjetaEquipo/>
+    <h2 class="titulos">Equipos</h2>
+    <TarjetaEquipo :teams="teamsData"/>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import TarjetaCircuito from './components/TarjetaCircuito.vue';
+import TarjetaEquipo from './components/TarjetaEquipo.vue';
+import TarjetaPiloto from './components/TarjetaPiloto.vue';
 
-
+//variables
 const racesData = ref([]);
+const teamsData = ref([]);
+const driversData = ref([]);
 
+//circuitos
 const fetchRaceData = async () => {
   try {
     const response = await fetch('https://f1-api-bs37.onrender.com/circuits'); // Ajusta la ruta según la ubicación real de tu archivo
@@ -57,6 +50,31 @@ const fetchRaceData = async () => {
 };
 
 onMounted(fetchRaceData);
+//teams
+const fetchTeamData = async () => {
+  try {
+    const response = await fetch('https://f1-api-bs37.onrender.com/teams'); // Ajusta la ruta según la ubicación real de tu archivo
+    const data = await response.json();
+    teamsData.value = data;
+  } catch (error) {
+    console.error('Error al cargar los datos:', error);
+  }
+};
+
+onMounted(fetchTeamData);
+
+//pilotos
+const fetchDriverData = async () => {
+  try {
+    const response = await fetch('https://f1-api-bs37.onrender.com/ranking'); // Ajusta la ruta según la ubicación real de tu archivo
+    const data = await response.json();
+    driversData.value = data;
+  } catch (error) {
+    console.error('Error al cargar los datos:', error);
+  }
+};
+
+onMounted(fetchDriverData);
 
 </script>
 

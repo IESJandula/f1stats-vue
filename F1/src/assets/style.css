@@ -35,17 +35,23 @@ ul li{
 }
 
 /*TARJETAS/////////////////////////////////////////*/
+
+body{
+  width: 100%;
+  margin: 0 auto;
+}
 .contenedor {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(calc(33.33% - 20px), 1fr)); /* Ajusta el tamaño de las columnas para tener tres tarjetas por fila */
     gap: 20px;
     justify-items: stretch;
+    width: 80%;
+    margin-left: 10%;
   }
   
   .tarjeta {
-    display: grid;
-    grid-template-columns: auto 1fr; /* La primera columna se ajustará al contenido de la imagen */
-    background-color: rgb(3, 3, 124);
+
+    background-color: rgb(26, 26, 156);
     color: white;
     border-radius: 15px;
   }
@@ -66,4 +72,8 @@ ul li{
   .tarjetaInfo {
     padding: 20px;
     text-align: left;
+  }
+
+  .titulos{
+    font-size: 30px;
   }
