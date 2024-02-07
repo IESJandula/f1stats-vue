@@ -11,22 +11,22 @@
     </form>
   </header>
 
-  <div class="index" v-if="router.path === '/index' || (resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0)">
+  <div class="index" v-if="router.path === '/index'">
     <h2 class="titulos">Mejores Pilotos</h2>
     <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
 </div>
 
-<div class="drivers" v-if="router.path === '/drivers' || (resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0)">
+<div class="drivers" v-else-if="router.path === '/drivers'">
   <h2 class="titulos">Pilotos</h2>
   <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
 </div>
 
-<div class="circuitos" v-if="router.path === '/circuits'  || (resultadoFiltradoCircuitos && resultadoFiltradoCircuitos.length > 0)">
+<div class="circuitos" v-else-if="router.path === '/circuits'">
   <h2 class="titulos">Circuitos</h2>
   <TarjetaCircuito :races="resultadoFiltradoCircuitos && resultadoFiltradoCircuitos.length > 0 ? resultadoFiltradoCircuitos : racesData"/>
 </div>
 
-<div class="equipos" v-if="router.path === '/teams' || (resultadoFiltradoEquipos && resultadoFiltradoEquipos.length > 0)">
+<div class="equipos" v-else-if="router.path === '/teams'">
   <h2 class="titulos">Equipos</h2>
   <TarjetaEquipo :teams="resultadoFiltradoEquipos && resultadoFiltradoEquipos.length > 0 ? resultadoFiltradoEquipos : teamsData"/>
 </div>

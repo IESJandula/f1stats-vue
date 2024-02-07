@@ -50,10 +50,17 @@ body{
   }
   
   .tarjeta {
-
     background-color: rgb(26, 26, 156);
     color: white;
     border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.537); /* Sombras */
+  }
+
+  .tarjeta:hover {
+    border-radius: 15px;
+    transform: translateY(-5px); /* Desplazar hacia arriba */
+    box-shadow: 0px 14px 18px rgba(0, 0, 0, 0.743);
   }
   
   .tarjetaImagen {
@@ -76,4 +83,41 @@ body{
 
   .titulos{
     font-size: 30px;
+  }
+
+  /*popup/////////////////////*/
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(77, 77, 214);
+    color: white;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+
+  .popupContent{
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  .popupInfo{
+    text-align: left;
+  }
+
+  .popupImagenPiloto{
+    width: 400px;
+  }
+
+  .closeButton{
+    position: relative;
+    top: -50%;
+    left: -15%;
+    font-size: 30px;
+    color: white;
+    background-color: red;
+    border: 0;
   }

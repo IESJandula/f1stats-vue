@@ -5,12 +5,12 @@
         <img :src="race.circuit.image" alt="mapa circuito">
       </div>
       <div class="tarjetaInfo">
-        <h2>{{ race.competition.name }}</h2>
+        <h2>{{ race.circuit.name }}</h2>
         <p><span>País: </span> {{ race.competition.location.country }} </p>
         <hr>
         <p><span>Ciudad: </span> {{ race.competition.location.city }} </p>
         <hr>
-        <p><span>Kilómetros: </span> 50 km</p>
+        <p><span>Kilómetros: </span> {{ race.distance }}</p>
       </div>
     </div>
   </div>
