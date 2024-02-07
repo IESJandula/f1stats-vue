@@ -1,36 +1,51 @@
 <script setup>
-/* import Header from '../components/Header.vue';
+import HeaderSearch from '../components/HeaderSearch.vue';
 import CardEscuderia from '../components/cards/CardEscuderia.vue';
+import apiF1 from '@/services/apiF1';
 import { onMounted, ref } from 'vue';
 
-const escuderiaData = ref(null);
+const escuderias = ref([])
 
-onMounted(async () => {
+const fetchEquipos = async () => {
     try {
-        const response = await fetch('https://f1-api-bs37.onrender.com/teams');
-        const data = await response.json();
-        escuderiaData.value = data;
+        if (localStorage.getItem('equipos')) {
+            escuderias.value = JSON.parse(localStorage.getItem('equipos'))
+        } else {
+            escuderias.value = await apiF1.teams.getTeams();
+            escuderias.value = escuderias.value.response
+            localStorage.setItem('equipos', JSON.stringify(escuderias.value))
+        }
     } catch (error) {
-        console.error('Error al obtener datos de la API', error);
+        console.log(error);
     }
-}) */
+}
+
+onMounted(() => {
+    fetchEquipos();
+})
 
 </script>
 
 <template>
-    <!-- <Header></Header>
+    <HeaderSearch></HeaderSearch>
     <div class="titulos-header custom-margin">
         <h1>Ranking de escuderias</h1>
         <h4>Season 2023</h4>
     </div>
 
-    <div v-if="escuderiaData">
-        <CardEscuderia
-        v-for="escuderia in escuderiaData"
-        :key="escuderia.id"
-        :nombre="escuderia.name"
-        :presidente="escuderia.president"
-        :imagen="escuderia.logo">
-        </CardEscuderia>
-    </div> -->
+    <main class="main-pilotos">
+        <div class="container mt-4">
+            <div v-if="escuderias" class="row">
+                <div v-for="escuderia in escuderias" :key="escuderia.id" class="col-md-4 mb-4" >
+                    <CardEscuderia :nombre="escuderia?.team?.name" :imagen="escuderia?.team?.logo" :posicion="escuderia.position" :puntos="escuderia.points" />
+                </div>
+            </div>
+        </div>
+    </main>
 </template>
+
+<style scoped>
+.ferrari{
+    height: 196px !important;
+}
+</style>

@@ -25,7 +25,7 @@
 </script>
 
 <template>
-    <div class="card" style="width: 18rem;">
+    <div class="card">
         <img :src="imagen" class="card-img-top" alt="equipo">
         <div class="card-body">
           <h5 class="card-title">{{ nombre }}</h5>

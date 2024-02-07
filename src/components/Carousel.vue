@@ -22,11 +22,11 @@ const fetchRanking = async () => {
       thirdPlace.value = datosPilotos[2]
     } else {
       ranking.value = await apiF1.ranking.getRanking();
+      ranking.value = ranking.value.response
       firstPlace.value = ranking.value[0];
       secondPlace.value = ranking.value[1];
       thirdPlace.value = ranking.value[2];
-      ranking.value = ranking.value.response
-      localStorage.setItem('pilotos', JSON.stringify(ranking.value.response))
+      localStorage.setItem('pilotos', JSON.stringify(ranking.value))
     }
   } catch (error) {
     console.log(error);
@@ -37,17 +37,18 @@ const fetchEquipos = async () => {
   try {
     if (localStorage.getItem('equipos')) {
       const datosEquipos = JSON.parse(localStorage.getItem('equipos'))
+      console.log(datosEquipos);
       firstPlaceTeam.value = datosEquipos[0]
-      console.log(firstPlaceTeam.value);
       secondPlaceTeam.value = datosEquipos[1]
       thirdPlaceTeam.value = datosEquipos[2]
     } else {
       team.value = await apiF1.teams.getTeams();
+      team.value = team.value.response
+      console.log(team.value);
       firstPlaceTeam.value = team.value[0];
       secondPlaceTeam.value = team.value[1];
       thirdPlaceTeam.value = team.value[2];
-      team.value = team.value.response
-      localStorage.setItem('equipos', JSON.stringify(team.value.response))
+      localStorage.setItem('equipos', JSON.stringify(team.value))
     }
   } catch (error) {
     console.log(error);

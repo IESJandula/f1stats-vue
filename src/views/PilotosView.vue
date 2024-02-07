@@ -1,9 +1,11 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import Header from '../components/Header.vue';
+import apiF1 from '@/services/apiF1';
+import HeaderSearch from '../components/HeaderSearch.vue';
 import CardPiloto from '../components/cards/CardPiloto.vue';
 
 const pilotos = ref([])
+const cartaSeleccionada = ref(null)
 
 const fetchRanking = async () => {
     try {
@@ -12,11 +14,15 @@ const fetchRanking = async () => {
         } else {
             pilotos.value = await apiF1.ranking.getRanking();
             pilotos.value = pilotos.value.response
-            localStorage.setItem('pilotos', JSON.stringify(pilotos.value.response))
+            localStorage.setItem('pilotos', JSON.stringify(pilotos.value))
         }
     } catch (error) {
         console.log(error);
     }
+}
+
+const mostrarDetalle = (piloto) => {
+    cartaSeleccionada.value = piloto;
 }
 
 onMounted(() => {
@@ -25,7 +31,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Header></Header>
+    <HeaderSearch></HeaderSearch>
     <div class="titulos-header custom-margin">
         <h1>Ranking de pilotos</h1>
         <h4>Season 2023</h4>
@@ -41,4 +47,8 @@ onMounted(() => {
             </div>
         </div>
     </main>
+
+    <div v-if="cartaSeleccionada">
+
+    </div>
 </template>
