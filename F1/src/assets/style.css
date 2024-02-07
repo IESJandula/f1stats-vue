@@ -121,3 +121,13 @@ body{
     background-color: red;
     border: 0;
   }
+
+  .closeButtonTeam{
+    position: relative;
+    top: -28%;
+    left: -20%;
+    font-size: 30px;
+    color: white;
+    background-color: red;
+    border: 0;
+  }
