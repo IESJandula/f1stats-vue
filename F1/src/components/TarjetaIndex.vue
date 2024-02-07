@@ -1,6 +1,6 @@
 <template>
     <div class="contenedor">
-      <div class="tarjeta" v-for="driver in drivers" :key="driver.id">
+      <div class="tarjeta" v-for="driver in drivers.slice(0, 10)" :key="driver.id">
         <div class="tarjetaImagen">
           <img :src="driver.driver.image" alt="imagen piloto">
         </div>
@@ -23,9 +23,9 @@
       required: true
     }
   });
-
+  
+  
   
   </script>
   
-  <style>
-</style>
+  <style></style>
