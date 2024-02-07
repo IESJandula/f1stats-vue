@@ -30,7 +30,7 @@ const props = defineProps({
 
 const selectTeam = async (team) => {
   try {
-    const response = await fetch('https://f1-api-bs37.onrender.com/teams?' + team.name); // Ajusta la ruta según la ubicación real de tu archivo
+    const response = await fetch('https://f1-api-bs37.onrender.com/team?name='+team.name); // Ajusta la ruta según la ubicación real de tu archivo
     const data = await response.json();
     console.log(data)
     equipoExtendido.value = data[0];

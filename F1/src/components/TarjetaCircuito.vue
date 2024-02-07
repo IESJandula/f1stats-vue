@@ -27,7 +27,8 @@ const props = defineProps({
 
 const selectCircuit = async (race) => {
   try {
-    const response = await fetch('https://f1-api-bs37.onrender.com/circuit?name=' + race.circuit.name); // Ajusta la ruta según la ubicación real de tu archivo
+    console.log(race.circuit.name)
+    const response = await fetch('https://f1-api-bs37.onrender.com/circuit?name=' + race.competition.name); // Ajusta la ruta según la ubicación real de tu archivo
     const data = await response.json();
     console.log(data)
     circuitoExtendido.value = data[0];
