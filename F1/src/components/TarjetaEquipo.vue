@@ -82,8 +82,6 @@ const openPopup = (equipoExtendido) => {
           <hr>
           <p><span>Neumaticos: </span> ${equipoExtendido.tyres} </p>
           <hr>
-          <p><span>Victorias: </span> ${equipoExtendido.wins} </p>
-          <hr>
       </div>
     </div>`;
 
@@ -91,7 +89,7 @@ const openPopup = (equipoExtendido) => {
   document.body.appendChild(popup);
 
   // Agregar un listener al botón de cerrar
-  const closeButton = popup.querySelector('.closeButtonTeam');
+  const closeButton = popup.querySelector('.closeButton');
   closeButton.addEventListener('click', () => {
     document.body.removeChild(popup);
   });
