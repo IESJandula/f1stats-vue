@@ -1,50 +1,82 @@
 <script setup>
-    import { defineProps } from 'vue';
+import axios from 'axios';
+import { defineProps, defineEmits, ref } from 'vue';
 
-    const props = defineProps({
-        nombre: {
-            type: String,
-            required: true
-        },
+const pilotoIndividual = ref(null)
 
-        equipo: {
-            type: String,
-            required: true
-        },
+const emit = defineEmits(['mostrar-informacion'])
 
-        posicion: {
-            type: Number,
-            required: true
-        },
 
-        puntos: {
-            type: Number,
-            required: true
-        },
+const props = defineProps({
+    nombre: {
+        type: String,
+        required: true
+    },
 
-        victorias: {
-            type: Number,
-            required: true
-        },
+    equipo: {
+        type: String,
+        required: true
+    },
 
-        imagen: {
-            type: String,
-            required: true
-        }
-    })
+    posicion: {
+        type: Number,
+        required: true
+    },
+
+    puntos: {
+        type: Number,
+        required: true
+    },
+
+    victorias: {
+        type: Number,
+        required: true
+    },
+
+    imagen: {
+        type: String,
+        required: true
+    },
+
+    numero: {
+        type: Number,
+        required: false
+    }
+})
+
+
+const mostrarInformacionDetallada = async () => {
+    // Emitir un evento para notificar al componente principal que se quiere mostrar la información detallada
+    emit('mostrar-informacion', props.nombre);
+
+    // Realizar la solicitud para obtener los datos del piloto
+    try {
+        const response = await axios.get(`https://f1-api-bs37.onrender.com/pilot?name=${props.nombre}`);
+        pilotoIndividual.value = response.data;
+        console.log(pilotoIndividual.value);
+    } catch (error) {
+        console.error('Error al obtener el piloto:', error);
+    }
+};
 </script>
 
 <template>
-    <div class="card">
+    <div class="card" @click="mostrarInformacionDetallada">
         <img :src="imagen" class="card-img-top" alt="piloto">
         <div class="card-body">
-          <h5 class="card-title">{{ nombre }}</h5>
+            <h5 class="card-title">{{ nombre }}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Equipo: {{ equipo }}</li>
-          <li class="list-group-item">Posición: {{ posicion }}</li>
-          <li class="list-group-item">Puntos: {{ puntos }}</li>
-          <li class="list-group-item">Victorias: {{ victorias }}</li>
+            <li class="list-group-item">Equipo: {{ equipo }}</li>
+            <li class="list-group-item">Posición: {{ posicion }}</li>
+            <li class="list-group-item">Puntos: {{ puntos }}</li>
+            <li class="list-group-item">Victorias: {{ victorias }}</li>
+        </ul>
+        <ul class="list-group list-group-flush" v-if="pilotoIndividual">
+            <li class="list-group-item">Número coche: {{ numero }}</li>
+            <li class="list-group-item">Fecha Nacimiento: {{ pilotoIndividual.birthdate }}</li>
+            <li class="list-group-item">Lugar Nacimiento: {{ pilotoIndividual.birthplace }}</li>
+            <li class="list-group-item">Podiums totales: {{ pilotoIndividual.podiums }}</li>
         </ul>
     </div>
 </template>
