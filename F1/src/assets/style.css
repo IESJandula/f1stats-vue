@@ -101,7 +101,7 @@ body{
 
   .popupContent{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
   }
 
   .popupInfo{
@@ -109,12 +109,12 @@ body{
   }
 
   .popupImagenPiloto{
-    width: 400px;
+    width: 300px;
   }
 
   .closeButton{
     position: relative;
-    top: -50%;
+    top: -35%;
     left: -15%;
     font-size: 30px;
     color: white;

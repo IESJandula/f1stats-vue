@@ -49,8 +49,10 @@ const openPopup = (circuitoExtendido) => {
   popup.classList.add('popup');
   popup.innerHTML = `
     <div class="popupContent">
-      <div class="popupImagen">
+      <div>
         <button class="closeButton">&times;</button>
+      </div>
+      <div class="popupImagen">   
         <img src="${circuitoExtendido.circuit.image}" alt="imagen piloto" class="popupImagenPiloto">
       </div>
       <div class="popupInfo">
