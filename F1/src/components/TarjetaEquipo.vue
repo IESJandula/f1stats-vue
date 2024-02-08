@@ -51,8 +51,10 @@ const openPopup = (equipoExtendido) => {
   popup.classList.add('popup');
   popup.innerHTML = `
     <div class="popupContent">
+      <div class="popupClose">
+        <button class="closeButton">&times;</button>
+      </div>
       <div class="popupImagen">
-        <button class="closeButtonTeam">&times;</button>
         <img src="${equipoExtendido.logo}" alt="logo_equipo" class="popupImagenPiloto">
       </div>
       <div class="popupInfo">
