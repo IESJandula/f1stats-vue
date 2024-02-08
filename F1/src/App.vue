@@ -1,7 +1,7 @@
 <template>
   <header class="bandera-ondulante">
     <ul>
-      <li @click="hacerPeticion"><router-link to="/index" class="router-link">Index</router-link></li>
+      <li style="" @click="hacerPeticion"><router-link to="/index" class="router-link">Index</router-link></li>
       <li @click="hacerPeticion"><router-link to="/drivers" class="router-link">Pilotos</router-link></li>
       <li @click="hacerPeticion"><router-link to="/circuits" class="router-link">Circuitos</router-link></li>
       <li @click="hacerPeticion"><router-link to="/teams" class="router-link">Equipos</router-link></li>
