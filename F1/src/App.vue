@@ -14,7 +14,7 @@
   <div class="index" v-if="router.path === '/index'">
     <h2 class="titulos">Mejores Pilotos</h2>
     <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
-</div>
+  </div>
 
 <div class="drivers" v-else-if="router.path === '/drivers'">
   <h2 class="titulos">Pilotos</h2>
