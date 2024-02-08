@@ -103,8 +103,9 @@ onMounted(() => {
 <style>
 
 .contenedorCarousel {
-  width: 80%; /* Ancho del contenedor, ajustable según tus necesidades */
+  width: 90%; /* Ancho del contenedor, ajustable según tus necesidades */
   display: flex;
+  margin-left: 5%;
   justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
   height: 500px; /* Altura del contenedor */
   gap: 10px; /* Espacio entre las tarjetas */
