@@ -13,7 +13,7 @@
 
   <div class="index" v-if="router.path === '/index'">
     <h2 class="titulos">Mejores Pilotos</h2>
-    <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData.slice(0,10)"/>
+    <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
 </div>
 
 <div class="drivers" v-else-if="router.path === '/drivers'">
@@ -79,15 +79,9 @@ const handleSearch = () => {
 //circuitos
 const fetchRaceData = async () => {
   try {
-    if (localStorage.getItem('races')) {
-      racesData.value = JSON.parse(localStorage.getItem('races'));
-    } else {
-      const response = await fetch('https://f1-api-bs37.onrender.com/circuits'); 
-      const data = await response.json();
-      localStorage.setItem('races', JSON.stringify(data)); // Corrección aquí
-      racesData.value = data;
-    }
-
+    const response = await fetch('https://f1-api-bs37.onrender.com/circuits'); // Ajusta la ruta según la ubicación real de tu archivo
+    const data = await response.json();
+    racesData.value = data;
   } catch (error) {
     console.error('Error al cargar los datos:', error);
   }
@@ -97,16 +91,9 @@ onMounted(fetchRaceData);
 //teams
 const fetchTeamData = async () => {
   try {
-
-    if (localStorage.getItem('teams')) {
-      racesData.value = JSON.parse(localStorage.getItem('teams'));
-    } else {
-      const response = await fetch('https://f1-api-bs37.onrender.com/teams'); 
-      const data = await response.json();
-      localStorage.setItem('teams', JSON.stringify(data));
-      teamsData.value = data;
-    }
-
+    const response = await fetch('https://f1-api-bs37.onrender.com/teams'); // Ajusta la ruta según la ubicación real de tu archivo
+    const data = await response.json();
+    teamsData.value = data;
   } catch (error) {
     console.error('Error al cargar los datos:', error);
   }
@@ -117,15 +104,9 @@ onMounted(fetchTeamData);
 //pilotos
 const fetchDriverData = async () => {
   try {
-    
-    if (localStorage.getItem('ranking')) {
-      driversData.value = JSON.parse(localStorage.getItem('ranking'));
-    } else {
-      const response = await fetch('https://f1-api-bs37.onrender.com/ranking'); 
-      const data = await response.json();
-      localStorage.setItem('ranking', JSON.stringify(data));
-      driversData.value = data;
-    }
+    const response = await fetch('https://f1-api-bs37.onrender.com/ranking'); // Ajusta la ruta según la ubicación real de tu archivo
+    const data = await response.json();
+    driversData.value = data;
   } catch (error) {
     console.error('Error al cargar los datos:', error);
   }
