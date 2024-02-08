@@ -16,7 +16,9 @@
   </div>
 </template>
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
+
+const circuitoExtendido = ref([]);
 
 const props = defineProps({
   races: {
@@ -27,7 +29,6 @@ const props = defineProps({
 
 const selectCircuit = async (race) => {
   try {
-    console.log(race.circuit.name)
     const response = await fetch('https://f1-api-bs37.onrender.com/circuit?name=' + race.competition.name); // Ajusta la ruta según la ubicación real de tu archivo
     const data = await response.json();
     console.log(data)
@@ -50,16 +51,14 @@ const openPopup = (circuitoExtendido) => {
     <div class="popupContent">
       <div class="popupImagen">
         <button class="closeButton">&times;</button>
-        <img src="${circuitoExtendido.image}" alt="imagen piloto" class="popupImagenPiloto">
+        <img src="${circuitoExtendido.circuit.image}" alt="imagen piloto" class="popupImagenPiloto">
       </div>
       <div class="popupInfo">
         
-          <h2>${circuitoExtendido.name}</h2>
-          <p><span>Abbr: </span> ${circuitoExtendido.abbr} </p>
+          <h2>${circuitoExtendido.circuit.name}</h2>
+          <p><span>País: </span> ${circuitoExtendido.competition.location.county} </p>
           <hr>
-          <p><span>Numero en Ranking: </span> ${circuitoExtendido.position} </p>
-          <hr>
-          <p><span>Fecha de Nacimiento: </span> ${circuitoExtendido.dateOfBirth} </p>
+          <p><span>Ciudad: </span> ${circuitoExtendido.competition.location.city} </p>
           <hr>
           <p><span>Nacionalidad: </span> ${circuitoExtendido.nationality} </p>
           <hr>
