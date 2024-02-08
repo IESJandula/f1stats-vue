@@ -146,3 +146,33 @@ body{
     border: 0;
     z-index: 999;
   }
+  @keyframes ondular {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  .bandera-ondulante {
+    background-image: url('./img/bandera.webp');
+    background-size:10%; /* o el tamaño que prefieras */
+    width: 100%; /* o el ancho que prefieras */
+    height: 100px; /* o la altura que prefieras */
+    animation: ondular 2s infinite;
+    /* Añade otros estilos según sea necesario */
+  }
+  
+  li{
+    width: 20%;
+    font-size: 2.4em;
+    font-weight: bold;
+    background-color: rgb(77, 77, 214);
+    border-radius: 10px;
+    align-items: center;
+    margin-top: 2%;
+
+  }
+  input{
+    width: 80%;
+    border-radius: 10px;
+    padding: 2%;
+    margin-top: 2%;
+  }
