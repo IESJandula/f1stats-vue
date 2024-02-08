@@ -59,27 +59,17 @@ const openPopup = (pilotoExtendido) => {
           <h2>${pilotoExtendido.name}</h2>
           <p><span>Abbr: </span> ${pilotoExtendido.abbr} </p>
           <hr>
-          <p><span>Numero en Ranking: </span> ${pilotoExtendido.position} </p>
+          <p><span>Fecha de nacimiento: </span> ${pilotoExtendido.birthplace} </p>
           <hr>
-          <p><span>Fecha de Nacimiento: </span> ${pilotoExtendido.dateOfBirth} </p>
+          <p><span>Fecha de Nacimiento: </span> ${pilotoExtendido.career_points} </p>
           <hr>
-          <p><span>Nacionalidad: </span> ${pilotoExtendido.nationality} </p>
+          <p><span>Nacionalidad: </span> ${pilotoExtendido.country.name} </p>
           <hr>
-          <p><span>Equipo: </span> ${pilotoExtendido.team} </p>
+          <p><span>Veces competidas: </span> ${pilotoExtendido.grands_prix_entered} </p>
           <hr>
           <p><span>Numero: </span> ${pilotoExtendido.number} </p>
           <hr>
-          <p><span>Victorias: </span> ${pilotoExtendido.wins} </p>
-          <hr>
-          <p><span>Podios: </span> ${pilotoExtendido.podiums} </p>
-          <hr>
-          <p><span>Poles: </span> ${pilotoExtendido.poles} </p>
-          <hr>
-          <p><span>Fecha de Debut: </span> ${pilotoExtendido.debut} </p>
-          <hr>
-          <p><span>Fecha de Retiro: </span> ${pilotoExtendido.retire} </p>
-          <hr>
-          <p><span>Victorias: </span> ${pilotoExtendido.wins} </p>
+          <p><span>Podiums: </span> ${pilotoExtendido.podiums} </p>
           <hr>
       </div>
     </div>`;
