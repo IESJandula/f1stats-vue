@@ -11,6 +11,11 @@
     </form>
   </header>
 
+  <div class="index" v-if="router.path === '/'">
+    <h2 class="titulos">Bienvenido a tu portal de Formula 1</h2>
+    <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
+  </div>
+
   <div class="index" v-if="router.path === '/index'">
     <h2 class="titulos">Mejores Pilotos</h2>
     <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
