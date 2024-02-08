@@ -49,7 +49,7 @@ const openPopup = (circuitoExtendido) => {
   popup.classList.add('popup');
   popup.innerHTML = `
     <div class="popupContent">
-      <div>
+      <div class="popupClose">
         <button class="closeButton">&times;</button>
       </div>
       <div class="popupImagen">   
@@ -58,27 +58,15 @@ const openPopup = (circuitoExtendido) => {
       <div class="popupInfo">
         
           <h2>${circuitoExtendido.circuit.name}</h2>
-          <p><span>País: </span> ${circuitoExtendido.competition.location.county} </p>
+          <p><span>País: </span> ${circuitoExtendido.competition.location.country} </p>
           <hr>
           <p><span>Ciudad: </span> ${circuitoExtendido.competition.location.city} </p>
           <hr>
-          <p><span>Nacionalidad: </span> ${circuitoExtendido.nationality} </p>
+          <p><span>Temporada: </span> ${circuitoExtendido.season} </p>
           <hr>
-          <p><span>Equipo: </span> ${circuitoExtendido.team} </p>
+          <p><span>Laps: </span> ${circuitoExtendido.laps.total} </p>
           <hr>
-          <p><span>Numero: </span> ${circuitoExtendido.number} </p>
-          <hr>
-          <p><span>Victorias: </span> ${circuitoExtendido.wins} </p>
-          <hr>
-          <p><span>Podios: </span> ${circuitoExtendido.podiums} </p>
-          <hr>
-          <p><span>Poles: </span> ${circuitoExtendido.poles} </p>
-          <hr>
-          <p><span>Fecha de Debut: </span> ${circuitoExtendido.debut} </p>
-          <hr>
-          <p><span>Fecha de Retiro: </span> ${circuitoExtendido.retire} </p>
-          <hr>
-          <p><span>Victorias: </span> ${circuitoExtendido.wins} </p>
+          <p><span>Distancia: </span> ${circuitoExtendido.distance} </p>
           <hr>
       </div>
     </div>`;
