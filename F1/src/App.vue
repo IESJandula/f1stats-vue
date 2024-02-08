@@ -13,12 +13,12 @@
 
   <div class="index" v-if="router.path === '/'">
     <h2 class="titulos">Bienvenido a tu portal de Formula 1</h2>
-    <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
+    <TarjetaIndex :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
   </div>
 
   <div class="index" v-if="router.path === '/index'">
     <h2 class="titulos">Mejores Pilotos</h2>
-    <TarjetaPiloto :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
+    <TarjetaIndex :drivers="resultadoFiltradoPilotos && resultadoFiltradoPilotos.length > 0 ? resultadoFiltradoPilotos : driversData"/>
   </div>
 
 <div class="drivers" v-else-if="router.path === '/drivers'">
@@ -43,6 +43,7 @@ import { ref, onMounted, computed } from 'vue';
 import TarjetaCircuito from './components/TarjetaCircuito.vue';
 import TarjetaEquipo from './components/TarjetaEquipo.vue';
 import TarjetaPiloto from './components/TarjetaPiloto.vue';
+import TarjetaIndex from './components/TarjetaIndex.vue';
 import { useRoute } from 'vue-router';
 
 //variables

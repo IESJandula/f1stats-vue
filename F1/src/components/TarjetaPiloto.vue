@@ -1,5 +1,5 @@
 <template>
-  <div class="contenedor" ref="container">
+  <div class="contenedor">
     <div
       class="tarjeta"
       v-for="driver in drivers"
@@ -101,45 +101,4 @@ onMounted(() => {
 </script>
 
 <style>
-.contenedor {
-  width: 80%; /* Ancho del contenedor, ajustable según tus necesidades */
-  display: flex;
-  justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
-  height: 500px; /* Altura del contenedor */
-  gap: 10px; /* Espacio entre las tarjetas */
-  overflow: hidden; /* Oculta el contenido que desborde del contenedor */
-}
-
-.tarjeta {
-  flex: 0 0 120px; /* Define el tamaño inicial de las tarjetas */
-  border-radius: 0.5rem; /* Borde redondeado */
-  cursor: pointer; /* Cursor al pasar sobre la tarjeta */
-  box-shadow: 1px 5px 15px #1e0e3e; /* Sombra */
-  position: relative; /* Posición relativa para tarjetaInfo */
-  overflow: hidden; /* Oculta el contenido que desborde de la tarjeta */
-  animation: desplazar 10s linear infinite; /* Animación de desplazamiento */
-  width: 100%; /* Ancho total de la tarjeta */
-}
-
-.tarjeta:hover .tarjetaInfo {
-  opacity: 1; /* Hace visible la información al pasar el ratón */
-  transform: translateY(0%); /* Muestra la información */
-  visibility: visible; /* Hace visible la información */
-}
-
-@keyframes desplazar {
-  from {
-    transform: translateX(100%); /* Desde el 100% del ancho hacia la derecha */
-  }
-  to {
-    transform: translateX(-100%); /* Hacia el -100% del ancho (izquierda) */
-  }
-}
-
-span {
-  display: block; /* Muestra los elementos span en un bloque */
-  margin-top: 5px; /* Margen superior */
-  font-size: 1.2rem; /* Tamaño de fuente */
-}
-
 </style>
