@@ -13,7 +13,7 @@
         },
 
         posicion: {
-            type: String,
+            type: Number,
             required: true
         },
 

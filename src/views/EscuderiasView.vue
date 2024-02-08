@@ -2,9 +2,11 @@
 import HeaderSearch from '../components/HeaderSearch.vue';
 import CardEscuderia from '../components/cards/CardEscuderia.vue';
 import apiF1 from '@/services/apiF1';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 
 const escuderias = ref([])
+const searchTerm = ref('');
+const varEntidad = ref('Escudería');
 
 const fetchEquipos = async () => {
     try {
@@ -20,6 +22,24 @@ const fetchEquipos = async () => {
     }
 }
 
+const actualizarBusqueda = (busqueda) => {
+    console.log(busqueda);
+    // Actualiza el término de búsqueda
+    searchTerm.value = busqueda;
+}
+
+const equiposFiltrados = computed(() => {
+    if (!searchTerm.value.trim()) {
+        // Si la búsqueda está vacía, devuelve todos los escuderias
+        return escuderias.value;
+    } else {
+        // Filtra los escuderias por el nombre del conductor
+        return escuderias.value.filter(escuderia =>
+            escuderia.team.name.toLowerCase().includes(searchTerm.value.toLowerCase())
+        );
+    }
+});
+
 onMounted(() => {
     fetchEquipos();
 })
@@ -27,7 +47,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <HeaderSearch></HeaderSearch>
+    <HeaderSearch @filtrado="actualizarBusqueda" :entidad="varEntidad"></HeaderSearch>
     <div class="titulos-header custom-margin">
         <h1>Ranking de escuderias</h1>
         <h4>Season 2023</h4>
@@ -35,8 +55,8 @@ onMounted(() => {
 
     <main class="main-pilotos">
         <div class="container mt-4">
-            <div v-if="escuderias" class="row">
-                <div v-for="escuderia in escuderias" :key="escuderia.id" class="col-md-4 mb-4" >
+            <div v-if="equiposFiltrados.length > 0" class="row">
+                <div v-for="escuderia in equiposFiltrados" :key="escuderia.id" class="col-md-4 mb-4" >
                     <CardEscuderia :nombre="escuderia?.team?.name" :imagen="escuderia?.team?.logo" :posicion="escuderia.position" :puntos="escuderia.points" />
                 </div>
             </div>

@@ -35,7 +35,7 @@
           <li class="list-group-item">Puntos: {{ puntos }}</li>
         </ul>
       </div>
-      <div v-if="escuderia?.team?.name === 'Scuderia Ferrari'" :class="ferrari"></div>
+      <!-- <div v-if="escuderia?.team?.name === 'Scuderia Ferrari'" :class="ferrari"></div> -->
 </template>
 
 <style scoped>
