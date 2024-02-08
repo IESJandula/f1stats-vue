@@ -113,7 +113,7 @@ onMounted(() => {
 }
 
 .tarjetaPilotoCarousel {
-  flex: 0 0 120px; /* Define el tamaño inicial de las tarjetas */
+  flex: 0 0 300px; /* Define el tamaño inicial de las tarjetas */
   background-color: rgb(26, 26, 156);
   color: white;
   border-radius: 0.5rem; /* Borde redondeado */
