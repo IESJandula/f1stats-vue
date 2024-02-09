@@ -1,10 +1,8 @@
 <script setup>
 import axios from 'axios';
-import { defineProps, defineEmits, ref } from 'vue';
+import { defineProps, ref } from 'vue';
 
 const pilotoIndividual = ref(null)
-
-const emit = defineEmits(['mostrar-informacion'])
 
 
 const props = defineProps({
@@ -46,13 +44,12 @@ const props = defineProps({
 
 
 const mostrarInformacionDetallada = async () => {
-    // Emitir un evento para notificar al componente principal que se quiere mostrar la información detallada
-    emit('mostrar-informacion', props.nombre);
 
     // Realizar la solicitud para obtener los datos del piloto
     try {
         const response = await axios.get(`https://f1-api-bs37.onrender.com/pilot?name=${props.nombre}`);
         pilotoIndividual.value = response.data;
+        pilotoIndividual.value = pilotoIndividual.value[0];
         console.log(pilotoIndividual.value);
     } catch (error) {
         console.error('Error al obtener el piloto:', error);

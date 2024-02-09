@@ -50,11 +50,6 @@ const pilotosFiltrados = computed(() => {
     }
 } */
 
-const mostrarInformacionDetallada = (nombrePiloto) => {
-  // Realizar acciones adicionales según sea necesario
-  console.log('Mostrar información detallada para:', nombrePiloto);
-};
-
 onMounted(() => {
     fetchRanking();
 })
@@ -71,7 +66,7 @@ onMounted(() => {
         <div class="container mt-4">
             <div v-if="pilotosFiltrados.length > 0" class="row">
                 <div v-for="piloto in pilotosFiltrados" :key="piloto.id" class="col-md-4 mb-4">
-                    <CardPiloto @mostrar-informacion="mostrarInformacionDetallada" :nombre="piloto?.driver?.name" :imagen="piloto?.driver?.image" :equipo="piloto?.team?.name"
+                    <CardPiloto :nombre="piloto?.driver?.name" :imagen="piloto?.driver?.image" :equipo="piloto?.team?.name"
                         :posicion="piloto.position" :puntos="piloto.points" :victorias="piloto.wins" :numero="piloto?.driver?.number" />
                 </div>
             </div>
