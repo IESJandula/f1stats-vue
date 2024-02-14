@@ -1,0 +1,180 @@
+/*Nuestra hoja de estilo predefinida*/
+@font-face {
+    font-family: 'F1Font'; /* Nombre que usarás para referenciar la fuente */
+    src: url('Formula1-Regular-1.ttf'); /* Ruta real de tu archivo de fuente */
+}
+body{ 
+    font-family: 'F1Font', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0;
+    text-align: center;
+}
+
+/*SECCION HEADER////////////////////////////////////////////////////////////////*/
+header{
+    background-color: rgb(47, 47, 190);
+    color: white;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1% 2%;
+}
+
+ul{
+    margin: 0;
+}
+ul li{
+    display: inline-block;
+    margin-right: 4%;
+}
+.router-link{
+    text-decoration: none;
+    color: white;
+}
+
+/*TARJETAS/////////////////////////////////////////*/
+
+body{
+  width: 100%;
+  margin: 0 auto;
+}
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(33.33% - 20px), 1fr)); /* Ajusta el tamaño de las columnas para tener tres tarjetas por fila */
+    gap: 20px;
+    justify-items: stretch;
+    width: 80%;
+    margin-left: 10%;
+  }
+  
+  .tarjeta {
+    background-color: rgb(26, 26, 156);
+    color: white;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.537); /* Sombras */
+  }
+
+  .tarjeta:hover {
+    border-radius: 15px;
+    transform: translateY(-5px); /* Desplazar hacia arriba */
+    box-shadow: 0px 14px 18px rgba(0, 0, 0, 0.743);
+  }
+  
+  .tarjetaImagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  
+  .tarjetaImagen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  .tarjetaInfo {
+    padding: 20px;
+    text-align: left;
+  }
+
+  .titulos{
+    font-size: 30px;
+  }
+
+  /*popup/////////////////////*/
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(77, 77, 214);
+    color: white;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 2%;
+    overflow: auto; /* Prevent content overflow */
+  }
+
+  .popupContent{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+  }
+
+  .popupInfo{
+    text-align: left;
+  }
+
+  .popupImagenPiloto{
+    width: 100%;
+  }
+
+  .popupImagen{
+    text-align: left;
+    width: 90%;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .closeButton{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    font-size: 30px;
+    color: white;
+    background-color: red;
+    border: 0;
+  }
+
+  .popupClose{
+    width: 6%;
+  }
+
+  .closeButtonTeam{
+    position: relative;
+    top: -15%;
+    left: -20%;
+    font-size: 30px;
+    color: white;
+    background-color: red;
+    border: 0;
+    z-index: 999;
+  }
+  @keyframes ondular {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  .bandera-ondulante {
+    background-image: url('./img/bandera_meta2.gif');
+    background-size: cover; 
+    /*background-color: rgb(26, 26, 156);*/
+    width: 100%; /* o el ancho que prefieras */
+    height: 100px; /* o la altura que prefieras */
+    /*animation: ondular 2s infinite;*/
+    /* Añade otros estilos según sea necesario */
+  }
+  
+  li{
+    width: 15%;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 10px;
+    align-items: center;
+    margin-top: 2%;
+    background-color: black;
+    padding: 1%;
+
+  }
+  input{
+    width: 80%;
+    border-radius: 10px;
+    padding: 2%;
+    margin-top: 2%;
+  }
