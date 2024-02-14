@@ -1,4 +1,6 @@
 # F1 Stats Web App
+## Deploy
+https://statsf1jandula.netlify.app/
 ## Descripción
 Esta aplicación web fue desarrollada como proyecto educativo para mostrar estadísticas de Fórmula 1 utilizando Vue.js. Proporciona información detallada sobre pilotos, equipos y carreras de la temporada actual y anteriores.
 
